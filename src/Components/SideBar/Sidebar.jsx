@@ -5,6 +5,7 @@ import { MdOutlineComment } from "react-icons/md";
 import { IoBagCheckOutline } from "react-icons/io5";
 import { CiBadgeDollar } from "react-icons/ci";
 import { FiUsers } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 import "./Sidebar.css";
 function SideBar() {
@@ -14,22 +15,40 @@ function SideBar() {
         <h1 className="sidebar_title">به پنل کاربری خوش آمدید</h1>
         <ul className="sidebar_links">
           <li>
-            <a href="#"> <IoHomeOutline className="sidebar_icon" />صفحه اصلی</a>
+            <Link to="/product">
+              <IoHomeOutline className="sidebar_icon" />
+              صفحه اصلی
+            </Link>
           </li>
           <li className="active">
-            <a href="#"> <CiShoppingBasket className="sidebar_icon" />محصولات </a>
+            <Link to="/product">
+              <CiShoppingBasket className="sidebar_icon" />
+              محصولات
+            </Link>
           </li>
           <li>
-            <a href="#"> <MdOutlineComment className="sidebar_icon"/>کامنت ها</a>
+            <Link to="/comment">
+              <MdOutlineComment className="sidebar_icon" />
+              کامنت ها
+            </Link>
           </li>
           <li>
-            <a href="#"> <FiUsers className="sidebar_icon" />کاربران</a>
+            <Link to="/users">
+              <FiUsers className="sidebar_icon" />
+              کاربران
+            </Link>
           </li>
           <li>
-            <a href="#"> <IoBagCheckOutline className="sidebar_icon" />سفارشات</a>
+            <Link to="/orders">
+              <IoBagCheckOutline className="sidebar_icon" />
+              سفارشات
+            </Link>
           </li>
           <li>
-            <a href="#"><CiBadgeDollar className="sidebar_icon" />تخفیف ها</a>
+            <Link to="/offs">
+              <CiBadgeDollar className="sidebar_icon" />
+              تخفیف ها
+            </Link>
           </li>
         </ul>
       </div>

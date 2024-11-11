@@ -2,7 +2,7 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
- width: 170%;
+ /* width: 170%; */
 }
 .header_admin{
     display: flex;
