@@ -4,7 +4,7 @@ function Orders() {
     return ( 
         <>
 
-<ErrorBox msg={'هیچ محصولی یافت نشد'}/>
+<ErrorBox msg={'هیچ سفارشی یافت نشد'}/>
         <h3>Orders</h3>
         </>
      );

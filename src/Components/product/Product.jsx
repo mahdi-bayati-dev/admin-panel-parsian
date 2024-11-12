@@ -1,10 +1,17 @@
 import React from "react";
 import ErrorBox from "../Error/ErrorBox";
+import AddNewProduct from "../AddNweProduct/AddNewProduct";
+import ProductsTables from "../productTabels/ProdactTables";
 function Product() {
     return ( 
         <>
+        <AddNewProduct/>
         <ErrorBox msg={'هیچ محصولی یافت نشد'}/>
-        <h1>product</h1>
+        <ProductsTables/>
+
+
+        
+        
         </>
      );
 }
