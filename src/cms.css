@@ -1,0 +1,39 @@
+.modals_parent {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+}
+
+.modals_parent.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cms-table {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--white);
+}
+
+.cms-table tr {
+    text-align: center;
+}
+
+/* Fix: Separate selectors for th and td */
+.cms-table th,
+.cms-table td {
+    padding: 20px;
+}
