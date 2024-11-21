@@ -1,0 +1,45 @@
+.Sidebar_container{
+    background-color: var(--blue);
+    position: fixed;
+    height:100vh;
+    flex: 1;
+}
+.sidebar_title{
+    font-size: 1.5rem;
+    color: var(--white);
+    padding: 1rem;
+    border-bottom: 2px solid #6c48bb;
+    text-align: right;
+
+}
+.sidebar_links{
+    margin-top: 1.3rem;
+
+}
+.sidebar_links li{
+    position: relative;
+    padding: 1rem;
+}
+
+.sidebar_links li a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 1.3rem
+}
+
+.sidebar_links li.active{
+    background-color: #391588;
+}
+
+.sidebar_links li:first-child{
+    margin-bottom: 1rem;
+}
+.sidebar_icon{
+    margin-left: .8rem;
+}
+
+
+
