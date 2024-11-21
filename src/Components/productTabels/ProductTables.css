@@ -45,3 +45,21 @@
     cursor: pointer;
     border: none;
 }
+/* edit modal */
+
+.edit_product_form_group{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+.edit_product_input{
+    outline: none;
+    border: none;
+    background-color: unset;
+    font-size: 1.1rem;
+}

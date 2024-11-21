@@ -5,6 +5,7 @@ import Orders from "./Components/Orders/Orders";
 import Offs from "./Components/Offs/Offs";
 
 const routes = [
+    { path: "/", element: <Product /> },
     { path: "/product", element: <Product /> },
     { path: "/comment", element: <Comment /> },
     { path: "/users", element: <Users /> },

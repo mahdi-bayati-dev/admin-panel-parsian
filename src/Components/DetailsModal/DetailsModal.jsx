@@ -1,7 +1,7 @@
-import React,{useEffect} from "react";
+import React,{Children, useEffect} from "react";
 import "./DetailsModal.css";
 
-function DetailsModal({onHide}) {
+function DetailsModal({onHide,children}) {
 
   useEffect(() => {
     const checkKey = (event) => {
@@ -17,32 +17,10 @@ function DetailsModal({onHide}) {
     }
 }, [onHide])
 
-    
-   
-    
-
-  
-
-
   return (
     <div className=" modals_parent active">
       <div className="detailsModal">
-        <table>
-          <thead className="cms-table">
-            <tr>
-              <th>اسم</th>
-              <th>قیمت</th>
-              <th>محبوبیت</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>هدفون</td>
-              <td>800000</td>
-              <td>92</td>
-            </tr>
-          </tbody>
-        </table>
+        {children}
       </div>
     </div>
   );

@@ -2,4 +2,14 @@
     padding: 30px;
     background-color: var(--white);
     font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    padding: 50px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transform: translateY(0);
+    transition: 0.3s;
+
 }
