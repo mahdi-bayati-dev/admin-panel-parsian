@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom";
 import "./DeleteModal.css";
 
- export default  function DeleteModal( {submitModal , cancelModal}) {
+ export default  function DeleteModal( {submitModal , cancelModal, title}) {
   return ReactDOM.createPortal(
     <div className={'modals_parent active'}>   
       <div className="delete_modal">
-        <h1>آیا از حذف اطمینان دارید؟</h1>
+        <h1>{title}</h1>
         <div className="delete_modal_btn">
           <button 
             className="delete_btn delete_modal_accept_btn"

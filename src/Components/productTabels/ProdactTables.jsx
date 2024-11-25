@@ -8,6 +8,8 @@ import { MdDriveFileRenameOutline } from "react-icons/md";
 import { PiListNumbersLight } from "react-icons/pi";
 import ErrorBox from "../Error/ErrorBox";
 import { ToastContainer, toast } from "react-toastify";
+import { GiEternalLove } from "react-icons/gi";
+import { RiNumbersLine } from "react-icons/ri";
 import "react-toastify/dist/ReactToastify.css";
 
 function ProductsTables() {
@@ -17,6 +19,12 @@ function ProductsTables() {
   const [allproducts, setAllProducts] = useState([]);
   const [productId, setProductId] = useState(null);
   const [mainProductInfos, setMainProductInfos] = useState({});
+
+  const [TitleNew, setTitleNew] = useState("");
+  const [priceNew, setPriceNew] = useState("");
+  const [countNew, setCountNew] = useState("");
+  const [popularityNew, setPopularityNew] = useState("");
+  const [saleNew, setSaleNew] = useState("");
 
   const getAllProducts = () => {
     fetch("http://localhost:8000/api/products")
@@ -45,6 +53,7 @@ function ProductsTables() {
     console.log("مودال کنسل شد");
     setIsShowDeleteModal(false);
   };
+  
 
   const DeleteModalSubmitAction = () => {
     // اطمینان از اینکه productId به درستی تنظیم شده است
@@ -80,7 +89,37 @@ function ProductsTables() {
   };
   const updateProductInfos = (event) => {
     event.preventDefault();
-    console.log("محصول ویرایش شد");
+
+    const productNewInfos = {
+      title: TitleNew,
+      price: priceNew,
+      count: countNew,
+      popularity: popularityNew,
+      sale: saleNew,
+    };
+
+    fetch(`http://localhost:8000/api/products/${productId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(productNewInfos),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("خطا در ویرایش محصول");
+        }
+        return res.json(); // بررسی اینکه آیا پاسخ JSON است
+      })
+      .then((result) => {
+        console.log("نتیجه ویرایش محصول:", result);
+        getAllProducts(); // بروزرسانی لیست محصولات
+        toast.success("محصول با موفقیت ویرایش شد");
+      })
+      .catch((err) => {
+        console.error("خطا در ویرایش محصول:", err);
+        toast.error("ویرایش محصول با خطا مواجه شد");
+      });
   };
 
   return (
@@ -109,7 +148,8 @@ function ProductsTables() {
                   </td>
                   <td>{product.title}</td>
                   <td>{product.price} تومان</td>
-                  <td>{product.conut}</td>
+                  <td>{product.count}</td>
+
                   <td>
                     <button
                       className="product-btn"
@@ -133,6 +173,12 @@ function ProductsTables() {
                       className="product-btn"
                       onClick={() => {
                         setIsShowEditModal(true);
+                        setProductId(product.id);
+                        setTitleNew(product.title);
+                        setPriceNew(product.price);
+                        setCountNew(product.count);
+                        setPopularityNew(product.popularity);
+                        setSaleNew(product.sale);
                       }}
                     >
                       ویرایش
@@ -150,6 +196,7 @@ function ProductsTables() {
         <DeleteModal
           submitModal={DeleteModalSubmitAction}
           cancelModal={DeleteModalCancelAction}
+          title={'آیا از حذف اطمینان داری؟'}
         />
       )}
       {isShowDetailsModal && (
@@ -186,6 +233,10 @@ function ProductsTables() {
               type="text"
               placeholder="عنوان جدید را وارد کنید"
               className="edit_product_input"
+              value={TitleNew}
+              onChange={(e) => {
+                setTitleNew(e.target.value);
+              }}
             />
           </div>
           <div className="edit_product_form_group">
@@ -196,6 +247,10 @@ function ProductsTables() {
               type="text"
               placeholder="قیمت جدید"
               className="edit_product_input"
+              value={priceNew}
+              onChange={(e) => {
+                setPriceNew(e.target.value);
+              }}
             />
           </div>
           <div className="edit_product_form_group">
@@ -206,26 +261,38 @@ function ProductsTables() {
               type="text"
               placeholder=" موجودی"
               className="edit_product_input"
+              value={countNew}
+              onChange={(e) => {
+                setCountNew(e.target.value);
+              }}
             />
           </div>
           <div className="edit_product_form_group">
             <span>
-              <PiListNumbersLight />
+              <GiEternalLove />
             </span>
             <input
               type="text"
               placeholder="محبوبیت"
               className="edit_product_input"
+              value={popularityNew}
+              onChange={(e) => {
+                setPopularityNew(e.target.value);
+              }}
             />
           </div>
           <div className="edit_product_form_group">
             <span>
-              <PiListNumbersLight />
+              <RiNumbersLine />
             </span>
             <input
               type="text"
               placeholder=" میزان فروش"
               className="edit_product_input"
+              value={saleNew}
+              onChange={(e) => {
+                setSaleNew(e.target.value);
+              }}
             />
           </div>
         </EditModal>

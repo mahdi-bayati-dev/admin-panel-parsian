@@ -1,0 +1,27 @@
+.text_modal{
+    width: 400px;
+    background-color: var(--white);
+    padding: 25px;
+    line-height: 25px;
+    text-align: justify;
+
+}
+.text_modal_close_btn{
+    width: 100%;
+    padding: 10px 0;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 1.1rem;
+    border-radius: .5rem;
+}
+.comment_show_btn{
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-right: 1.2rem;
+    cursor: pointer;
+    border: none;
+}
