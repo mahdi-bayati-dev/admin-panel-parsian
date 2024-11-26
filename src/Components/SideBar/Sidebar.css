@@ -40,6 +40,14 @@
 .sidebar_icon{
     margin-left: .8rem;
 }
+.sidebar_links li .active {
+    background-color: #391588;
+    color: #fff;
+}
 
+
+.sidebar_links li .active {
+    background-color: #391588;
+}
 
 
